@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ThreeJs Sandbox</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: black;
             background-image: linear-gradient(to bottom right, rgb(53, 66, 78), rgb(31, 41, 39));
             color: white;
             height: 100vh;
+            font-family: 'Roboto', sans-serif;
         }
 
         .flex-container {
@@ -28,6 +30,8 @@
             transition: all 0.3s ease-in-out;
             box-shadow: 5px 5px 5px black;
             background: black;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .flex-container>div:hover {
@@ -49,21 +53,22 @@
             }
         }
 
-        h3 {
+        h2 {
             text-align: center;
         }
 
         a {
             color: skyblue;
             text-align: center;
+            background-color: rgb(22, 24, 24);
         }
     </style>
 </head>
 
 <body>
-    <h3>
+    <h2>
         ThreeJs Sandbox
-    </h3>
+    </h2>
     <div class="flex-container">
         <div>
             <iframe src="./01-hello-world/index.html"></iframe>
