@@ -1,0 +1,22 @@
+{
+  "name": "threejs-sandbox",
+  "version": "1.0.0",
+  "description": "View it [HERE!](https://marnowicki.github.io/threejs-sandbox)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marnowicki/threejs-sandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marnowicki/threejs-sandbox/issues"
+  },
+  "homepage": "https://github.com/marnowicki/threejs-sandbox#readme",
+  "dependencies": {
+    "three": "^0.108.0"
+  }
+}
