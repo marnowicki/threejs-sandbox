@@ -1,4 +1,8 @@
-[View Page](https://marnowicki.github.io/threejs-sandbox)
+# THREEJS SANDBOX
+
+View it [HERE!](https://marnowicki.github.io/threejs-sandbox)
+
+There will be many (hope so) examples of [three.js](https://threejs.org/)
 
 ## Welcome to GitHub Pages
 
