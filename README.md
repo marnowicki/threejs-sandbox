@@ -1,3 +1,5 @@
+[View Page](https://marnowicki.github.io/threejs-sandbox)
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/marnowicki/threejs-sandbox/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
