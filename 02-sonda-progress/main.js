@@ -1,14 +1,20 @@
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight);
 let renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+//renderer.toneMapping = THREE.ReinhardToneMapping;
 document.body.appendChild(renderer.domElement);
 
-// let composer = new EffectComposer(renderer);
-// let renderPass = new RenderPass(scene, camera);
-// composer.addPass(renderPass);
-// let glitchPass = new GlitchPass();
-// composer.addPass(glitchPass);
+let composer = new THREE.EffectComposer(renderer);
+let renderPass = new THREE.RenderPass(scene, camera);
+composer.addPass(renderPass);
+let bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.5, 1, 0.2);
+composer.addPass(bloomPass);
+let glitchPass = new THREE.GlitchPass();
+composer.addPass(glitchPass);
+let chromaticAberrationPass = new THREE.ShaderPass(chromaticAberration);
+composer.addPass(chromaticAberrationPass);
 
 let rings = [];
 for (let i = 0; i < 9; i++) {
@@ -20,15 +26,15 @@ for (let i = 0; i < 9; i++) {
     rings.push({ ring, rotationSpeed: (Math.random() * 10 + 0.5) * 0.005 });
 }
 
-camera.position.z = 25;
-camera.lookAt(new THREE.Vector3(0,0,0));
+camera.position.z = 35;
+camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 animate();
 function animate() {
     requestAnimationFrame(animate);
     rings.forEach(r => r.ring.rotation.z += r.rotationSpeed);
-    renderer.render(scene, camera);
-    //composer.render();
+    //renderer.render(scene, camera);
+    composer.render();
 }
 
 window.addEventListener('resize', () => {
