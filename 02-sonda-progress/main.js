@@ -4,6 +4,12 @@ let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// let composer = new EffectComposer(renderer);
+// let renderPass = new RenderPass(scene, camera);
+// composer.addPass(renderPass);
+// let glitchPass = new GlitchPass();
+// composer.addPass(glitchPass);
+
 let rings = [];
 for (let i = 0; i < 9; i++) {
     let inner = i + 1;
@@ -22,6 +28,7 @@ function animate() {
     requestAnimationFrame(animate);
     rings.forEach(r => r.ring.rotation.z += r.rotationSpeed);
     renderer.render(scene, camera);
+    //composer.render();
 }
 
 window.addEventListener('resize', () => {
