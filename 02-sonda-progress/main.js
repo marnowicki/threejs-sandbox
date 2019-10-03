@@ -15,6 +15,9 @@ let glitchPass = new THREE.GlitchPass();
 composer.addPass(glitchPass);
 let chromaticAberrationPass = new THREE.ShaderPass(chromaticAberration);
 composer.addPass(chromaticAberrationPass);
+let antialiasPass = new THREE.ShaderPass(THREE.FXAAShader);
+composer.addPass(antialiasPass);
+antialiasPass.renderToScreen = true;
 
 let rings = [];
 for (let i = 0; i < 9; i++) {
@@ -41,7 +44,8 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-})
+    composer.setSize(window.innerWidth, window.innerHeight);
+}, false)
 
 document.addEventListener('mousemove', (e) => {
     let x = (e.clientX / window.innerWidth) * 2 - 1;
