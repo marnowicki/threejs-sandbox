@@ -27,6 +27,10 @@ let points = new THREE.Points(geometry, material);
 scene.add(points);
 
 camera.position.z = 1000;
+camera.updateMatrix();
+camera.updateMatrixWorld(); 
+let frustum = new THREE.Frustum();
+frustum.setFromMatrix(new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
 animate();
 
 function animate() {
@@ -34,6 +38,9 @@ function animate() {
 
     for(let i=0;i<10000;i++){
         geometry.vertices[i].x += 0.4;
+        if (geometry.vertices[i].x > 200 && !frustum.containsPoint(geometry.vertices[i])){
+            geometry.vertices[i].x -= 1000;
+        }
     }
     geometry.verticesNeedUpdate = true;
 
