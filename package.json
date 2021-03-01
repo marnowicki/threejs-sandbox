@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/marnowicki/threejs-sandbox#readme",
   "dependencies": {
-    "three": "^0.108.0"
+    "three": "^0.125.0"
   }
 }
